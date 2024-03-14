@@ -1,0 +1,38 @@
+import React,{useState} from "react";
+
+function App() {
+  const [name,setName]=useState("enter your name")
+  const [gender, setGender]=useState("enter your gender")
+  const handleChange=(e)=>{
+    setName(e.target.value);
+  }
+  const handleCheck=(e)=>{
+    const flag=e.target.checked
+
+    if(flag){
+      setGender(e.target.value);
+    }
+  }
+
+  return (
+    <>
+      <h1>{name}</h1>
+
+      <div className="margin-bottom: 3px, margin-top: 3px">
+        <input type="text" value={name} className="form-control" id="name" onChange={handleChange} />
+      </div>
+
+      <div className="margin-bottom:3">
+        <input type="text" className="form-control" id="city" />
+      </div>
+
+      <input type="radio" name="gender" id="" onChange={handleCheck} value="female" /> Female
+      <input type="radio" name="gender" id="" onChange={handleCheck} value="male" /> Male
+
+      <h2>Final Value is = {gender}</h2>
+      
+    </>
+  );
+}
+
+export default App;
