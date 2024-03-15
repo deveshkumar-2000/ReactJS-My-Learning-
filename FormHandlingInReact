@@ -1,0 +1,38 @@
+import React,{useState} from 'react'
+
+const App = () => {
+
+  const [name,setName]=useState("Devesh");
+  const[age,setAge]=useState(23);
+
+  const onFormSubmit=(e)=>{
+      e.preventDefault();
+      console.log(name,age);
+  }
+  const onNameChange=(e)=>{
+    setName(e.target.value);
+    console.log(e.target.value);
+  }
+  const onAgeChange=(e)=>{
+    setAge(e.target.value);
+    console.log(e.target.value);
+  }
+
+
+  return (
+    <div>
+      <h2>My Form 1</h2>
+      <h3>My name is {name} and I am {age} years old </h3>
+      <form onSubmit={onFormSubmit}>
+        <label>Name</label>
+        <input onChange={onNameChange} type='text' name='name' placeholder='enter the name'></input>
+        <label>Age</label>
+        <input onChange={onAgeChange} type='text' name='age' placeholder='enter the age'></input>
+        <button type='submit'>Submit</button>
+      </form>
+
+    </div>
+  )
+}
+
+export default App
